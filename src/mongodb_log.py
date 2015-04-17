@@ -55,6 +55,7 @@ from roslib.packages import find_node
 from designator_integration_msgs.msg import DesignatorRequest
 from designator_integration_msgs.msg import DesignatorResponse
 from designator_integration_msgs.msg import Designator
+from gazebo_model_state_publisher.msg import NamedPoseStamped
 #from rviz_intel.msg import TriangleMesh
 
 use_setproctitle = True
@@ -458,6 +459,11 @@ class MongoWriter(object):
             additional_parameters = ["-d" "designator"]
             if not node_path:
                 print("FAILED to detect mongodb_log_desig, falling back to generic logger (did not build package?)")
+        elif not self.no_specific and msg_class == NamedPoseStamped:
+            print("DETECTED named pose stamped topic %s, using fast C++ logger" % topic)
+            node_path = find_node(PACKAGE_NAME, "mongodb_log_nps")
+            if not node_path:
+                print("FAILED to detect mongodb_log_nps, falling back to generic logger (did not build package?)")
         """
         elif msg_class == TriangleMesh:
             print("DETECTED triangle mesh topic %s, using fast C++ logger" % topic)

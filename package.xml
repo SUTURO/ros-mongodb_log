@@ -19,10 +19,12 @@
   <build_depend>roscpp</build_depend>
   <build_depend>designator_integration_cpp</build_depend>
   <build_depend>designator_integration_msgs</build_depend>
+  <build_depend>gazebo_model_state_publisher</build_depend>
   
   <run_depend>roslib</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>designator_integration_cpp</run_depend>
   <run_depend>designator_integration_msgs</run_depend>
+  <run_depend>gazebo_model_state_publisher</run_depend>
   
 </package>
